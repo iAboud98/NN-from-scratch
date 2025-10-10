@@ -1,5 +1,5 @@
 import numpy as np
-from activation import ReLU
+from activation import ReLU, softmax
 
 np.random.seed(0)
 
@@ -15,6 +15,12 @@ class Layer:
     def run_activation(self, inputs):
         self.output = ReLU(inputs)
 
+    def run_softmax(self, inputs):
+        self.output = softmax(inputs)
+
 l1 = Layer(2, 5)
 l1.forward([[1,2], [4,2], [3,1]])
 l1.run_activation(l1.output)
+l1.run_softmax(l1.output)
+
+print(l1.output)
