@@ -1,11 +1,11 @@
 import numpy as np
-from activation import ReLU, softmax
+from nn.activation import ReLU, softmax
 
 np.random.seed(0)
 
 class Layer:
 
-    def __init__(self, features_num, neurons_num):
+    def __init__(self, neurons_num, features_num):
         self.biases = np.zeros((1,neurons_num))
         self.weights = 0.10 * np.random.randn(neurons_num, features_num)
 
@@ -17,10 +17,3 @@ class Layer:
 
     def run_softmax(self, inputs):
         self.output = softmax(inputs)
-
-l1 = Layer(2, 5)
-l1.forward([[1,2], [4,2], [3,1]])
-l1.run_activation(l1.output)
-l1.run_softmax(l1.output)
-
-print(l1.output)
