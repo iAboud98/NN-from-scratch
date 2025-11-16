@@ -21,4 +21,5 @@ class Dataset_Loader:
 
         output_path = os.path.join(os.path.dirname(__file__), "digits_dataset.csv")
         df = pd.DataFrame(self.rows, columns=self.columns)
+        df = df.sample(frac=1, random_state=42).reset_index(drop=True) # -> shuffle the data
         df.to_csv(output_path, index=False)
