@@ -12,8 +12,8 @@ class Layer:
     def forward(self, inputs):
         self.output = np.dot(inputs, self.weights.T) + self.biases
 
-    def run_activation(self, inputs):
-        self.output = ReLU(inputs)
+    def run_activation(self):
+        self.output = ReLU(self.output)
 
-    def run_softmax(self, inputs):
-        self.output = softmax(inputs)
+    def run_softmax(self):
+        self.output = softmax(self.output)
